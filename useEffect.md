@@ -96,22 +96,21 @@ The cleanup function in `useEffect` is crucial for handling side effects that ne
 - Before the effect re-runs due to changes in dependencies.
 
 ```
-import React, { useEffect } from 'react';
-const CleanupExampleComponent = () => {
+import React, { useState, useEffect } from 'react';
+const TimerComponent = () => {
+  const [count, setCount] = useState(0);
   useEffect(() => {
-    console.log('Effect is running');
-    // Example: Setting up a resource
-    const resource = 'resource setup';
-    // Return a cleanup function
+    const interval = setInterval(() => {
+      setCount((prevCount) => prevCount + 1);
+    }, 1000);
+    // Cleanup function to clear interval
     return () => {
-      console.log('Cleaning up:', resource);
-      // Code to cleanup the resource, like closing connections or removing event listeners
+      clearInterval(interval);
     };
-  }, []); // Empty dependency array means this effect runs once on mount and cleanup runs on unmount
-
-  return <div>Check the console for cleanup logs</div>;
+  }, []); // Empty dependency array, runs only once
+  return <div>Count: {count}</div>;
 };
-export default CleanupExampleComponent;
+export default TimerComponent;
 ```
 
 ## Why we cannot use async in the callback of `useEffect`
