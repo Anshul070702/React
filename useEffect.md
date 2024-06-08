@@ -11,11 +11,8 @@
 - Sending a message in the chat is an event because it is directly caused by the user clicking a specific button. However, setting up a server connection is an Effect because it should happen no matter which interaction caused the component to appear.
 - When you begin writing code in React to fetch data from an API, you may encounter an issue where your application enters into an infinite rendering loop. This occurs because **updating the state triggers a re-render**, leading to the execution of the same code again.
 
-> `useEffect()` hooks takes 2 arguments
-
-```
-useEffect(Effect function,[dependency Array])
-```
+* `useEffect()` hooks takes 2 arguments
+> useEffect(Effect function,[dependency Array])
 
 **Effect function** is an callback function that contains the side-effect logic and is executed after the component renders first time and after every subsequent render.
 **dependency Array** is an optional array of dependencies. Effect function is executed only if the dependencies have changed between rendering.
