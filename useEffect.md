@@ -23,7 +23,6 @@
 - So we should include the **state variables**, **props**, **context variables** inside the dependency array. Change in these values triggers re-render.
 
 ## Dependency Array importance
-
 Dependency Array determines when the effect runs
 
 - **No Dependency Array**: Runs after every render.
@@ -83,7 +82,9 @@ useEffect(() => {
 }, [handleClick]);
 ```
 
-> `useEffect` without dependencies can lead to unintentional side effects and reduced performance, so it's generally a good practice to specify dependencies when possible. Also, always clean up resources in the cleanup function to prevent memory leaks.
+> **`useEffect` without dependencies can lead to unintentional side effects and reduced performance, so it's generally a good practice to specify dependencies when possible. Also, always clean up resources in the cleanup function to prevent memory leaks.**
+
+>**If you think dependency array is a way to specify when you want to re-run the effect, then you're going to run into problems instead dependency array should be thought as a way to let React know about everything that the effect must watch for changes.**
 
 ## Cleanup in `useEffect`
 
