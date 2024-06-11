@@ -26,3 +26,5 @@ const Child = ({ state }) => {
 * In other words, context provides a way to make certain data accessible to many components in your application, regardless of how deeply nested they are in the component tree. 
 * The React Context API is a feature in React that allows you to pass context.
 
+![alt text](https://github.com/Anshul070702/React/blob/main/contextAPI.png)
+
